@@ -4,7 +4,7 @@ foreach ($this->datas as $id => $item) {
     ?>
     <div class="st-product-box">
       <div class="st-product-img-container">
-        <a href="<?php echo $item->link ?>" title="<?php echo $item->label ?>">
+        <a href="<?php echo $item->link ?>?product_id=<?php echo $item->id ?>" title="<?php echo $item->label ?>">
           <img class="st-product-img" src="<?php echo $item->image ?>" title="<?php echo $item->label ?>"/>
         </a>
       </div>
