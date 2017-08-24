@@ -685,7 +685,8 @@ class qbWpListsForm
                     </tr>
                 <?php endforeach ?>
                 <tr class="qbf-field qbf-field-submit">
-                    <td class="qbf-field-field" colspan="3">
+                    <td></td>
+                    <td class="qbf-field-field" colspan="2">
                         <?php foreach ($this->submit as $id => $field): ?>
                             <?php echo $this->renderField($field) ?>
                         <?php endforeach ?>
