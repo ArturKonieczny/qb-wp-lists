@@ -636,9 +636,9 @@ class qbWpListsForm
             case 'radio': case 'select':
                 return $f['value'] > -1;
             case 'text':
-                return mb_strlen($f['value']) > 2;
+                return mb_strlen($f['value']) > 0;
             case 'textarea':
-                return mb_strlen($f['value']) > 10;
+                return mb_strlen($f['value']) > 0;
             default: //file, label, password
                 return true;
         }

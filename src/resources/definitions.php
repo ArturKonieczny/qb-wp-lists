@@ -114,6 +114,9 @@ return [
     ],
     'form' => [
       'id' => 'form',
+      'fields' => [
+          'product_id' => ['title' => 'Produkt'],
+      ],
       'shortcode' => [
         'list' => 'SELECT pro.id AS product_id, pro.label AS label, pack.id AS package_id, box.price AS price, pack.weight AS weight, CONCAT(pack.label, \' (\', pack.weight,  \'g)\') AS option_value FROM wp_qb_wp_lists_box box LEFT JOIN wp_qb_wp_lists_product pro ON box.product_id = pro.id LEFT JOIN wp_qb_wp_lists_package pack ON box.package_id = pack.id',
       ],
