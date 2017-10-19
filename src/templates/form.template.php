@@ -4,6 +4,7 @@
     window.app = window.app || {};
     window.app.data = <?php echo json_encode($this->datas) ?>;
     window.app.chosenProduct = window.location.search.substr(1);
+    window.app.nonce = '<?php echo md5(QBWPLISTS_ID . time()); ?>';
     window.app.deliveryOptions = [
         {
           id: 'personal',

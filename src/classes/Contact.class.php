@@ -25,7 +25,7 @@ class qbWpListsContact
         if ($sent && $sent['collection']) {
             $this->setForm($sent['collection']);
             if ($this->form->validate()) {
-                $this->sendEmail();
+                $this->sendEmail($sent['collection']);
             }
         }
     }
@@ -77,7 +77,7 @@ class qbWpListsContact
         return $rows;
     }
 
-    private function sendEmail()
+    private function sendEmail($collectionId)
     {
         if (!$this->validateNonce()) {
             return;
@@ -105,8 +105,11 @@ class qbWpListsContact
                 wp_mail($field['value'], $title, $content, $headers);
             }
         }
-
-        header('Location: ' . get_the_permalink() . '?zcfc=' . md5('qbcontacform' . rand(1, 300)));
+        if ($collectionId == 'form') {
+          header('Location: ' . get_the_permalink() . '?mailsent');
+        } else {
+          header('Location: ' . get_the_permalink() . '?zcfc=' . md5('qbcontacform' . rand(1, 300)));
+        }
         exit;
     }
 
