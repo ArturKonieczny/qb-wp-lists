@@ -22,7 +22,7 @@ return [
         ],
         'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'encyclopedia',
         'shortcode' => [
-          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'encyclopedia',
+          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'encyclopedia WHERE active=true',
           'item' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'encyclopedia WHERE id=',
         ],
     ],
@@ -40,7 +40,7 @@ return [
         ],
         'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'support',
         'shortcode' => [
-          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'support',
+          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'support WHERE active=true',
           'item' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'support WHERE id=',
         ],
     ],
@@ -61,7 +61,7 @@ return [
         ],
         'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'product',
         'shortcode' => [
-          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'product',
+          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'product' . ' WHERE active=TRUE',
           'item' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'product WHERE id=',
           'item_extra' => 'SELECT box.*, pro.label AS product_label, pack.weight AS package_weight, pack.label AS package_label ' .
                     'FROM ' . QBWPLISTS_TABLE . 'box box ' .
@@ -84,7 +84,7 @@ return [
         ],
         'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'package',
         'shortcode' => [
-          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'package',
+          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'package WHERE active=true',
           'item' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'package WHERE id=',
         ],
     ],
@@ -108,7 +108,7 @@ return [
                   'LEFT JOIN ' . QBWPLISTS_TABLE . 'product pro ON box.product_id = pro.id ' .
                   'LEFT JOIN ' . QBWPLISTS_TABLE . 'package pack ON box.package_id = pack.id',
         'shortcode' => [
-          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'box',
+          'list' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'box where active=true',
           'item' => 'SELECT * FROM ' . QBWPLISTS_TABLE . 'box WHERE id=',
         ],
     ],
@@ -118,7 +118,7 @@ return [
           'product_id' => ['title' => 'Produkt'],
       ],
       'shortcode' => [
-        'list' => 'SELECT pro.id AS product_id, pro.label AS label, pack.id AS package_id, box.price AS price, pack.weight AS weight, CONCAT(pack.label, \' (\', pack.weight,  \'g)\') AS option_value FROM wp_qb_wp_lists_box box LEFT JOIN wp_qb_wp_lists_product pro ON box.product_id = pro.id LEFT JOIN wp_qb_wp_lists_package pack ON box.package_id = pack.id',
+        'list' => 'SELECT pro.id AS product_id, pro.label AS label, pack.id AS package_id, box.price AS price, pack.weight AS weight, CONCAT(pack.label, \' (\', pack.weight,  \'g)\') AS option_value FROM wp_qb_wp_lists_box box LEFT JOIN wp_qb_wp_lists_product pro ON box.product_id = pro.id LEFT JOIN wp_qb_wp_lists_package pack ON box.package_id = pack.id WHERE pro.active=true',
       ],
     ],
 ];

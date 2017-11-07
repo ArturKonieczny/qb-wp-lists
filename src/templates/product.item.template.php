@@ -18,7 +18,14 @@
         <th>Waga (gramy)</th>
         <th>Cena brutto (zł)</th>
       </tr>
-    <?php foreach ($this->datasExtras as $box):?>
+    <?php
+      function cmp($a, $b)
+      {
+        return $a->package_weight > $b->package_weight;
+      }
+
+      usort($this->datasExtras, "cmp");
+    foreach ($this->datasExtras as $box):?>
       <tr>
         <td><?php echo $box->package_label ?></td>
         <td><?php echo $box->package_weight ?></td>
