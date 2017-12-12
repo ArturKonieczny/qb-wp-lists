@@ -1,6 +1,6 @@
 <div class="product">
   <div class="store-item-img-container">
-    <img class="store-item-img" src="<?php echo $this->datas[0]->image ?>" title="<?php echo $this->datas[0]->label ?>"/>
+    <img class="store-item-img" src="<?php echo $this->datas[0]->image ?>" title="<?php echo $this->datas[0]->label ?>" alt=""/>
   </div>
   <div class="product-description">
     <p><?php echo $this->datas[0]->description ?></p>
